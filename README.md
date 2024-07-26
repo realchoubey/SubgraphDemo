@@ -233,18 +233,6 @@ You will receive an endpoint for your Subgraph. Head over to the Subgraph Studio
 
 <img width="759" alt="image" src="https://github.com/user-attachments/assets/d8033b4a-3c07-4dfe-bfef-4f0c49c65998">
 
-You can test your subgraph in the `Playground` before publishing it to The Graph Network.
-
-## Step 7: Publishing your Subgraph
-
-Publishing a subgraph to The Graph Network makes it available for [Curators](https://thegraph.com/docs/en/network/curating/) to begin curating on it, and [Indexers](https://thegraph.com/docs/en/network/indexing/) to begin indexing it.
-
-To publish your subgraph, run the following command:
-
-```
-graph publish
-```
-
 ------
 
 This marks the completion of the Subgraph deployment process✅
