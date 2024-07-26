@@ -16,7 +16,7 @@ pragma solidity >=0.8.0 <0.9.0;
  * A smart contract that allows changing a state variable of the contract and tracking the changes
  * It also allows the owner to withdraw the Ether in the contract
  */
-contract YourContract {
+contract DemoContract {
 	// State Variables
 	address public immutable owner;
 	string public greeting = "Building Unstoppable Apps!!!";
