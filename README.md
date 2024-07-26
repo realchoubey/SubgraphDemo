@@ -1,6 +1,8 @@
-# Creating & Deploying a Subgraph
+# Building a full stack dApp using The Graph
 
-## What are Subgraphs?
+## Creating & Deploying a Subgraph
+
+### What are Subgraphs?
 
 - A subgraph is a custom API built on blockchain data.
 
@@ -10,14 +12,49 @@
 
 You can find more about subgraphs in the docs [here](https://thegraph.com/docs/en/quick-start/).
 
-## Step 1: Create your Subgraph🛠
+### Subgraph Configuration
+
+There are three main Subgraph components:
+
+1. `subgraph.yaml`:
+   - This is the main configuration file for the subgraph. It defines the data sources (such as smart contracts), the events and entities that will be indexed, and other important settings like the start block for indexing.
+
+2. `schema.graphql`:
+   - This file contains the GraphQL schema that defines the entities and their relationships. It specifies how the data will be structured and queried. Entities represent the data models that will be indexed from the blockchain.
+
+3. `mapping.ts`:
+   - This is a TypeScript file (or files) that contains the mappings, which are the functions that handle the events emitted by the smart contracts. These functions transform and save the event data into the entities defined in the GraphQL schema.
+
+These files together define the subgraph's configuration, the data structure, and the logic for processing and storing blockchain data.
+
+### Setting up your Subgraph Studio account
+
+To setup your Subgraph Studio account, 
+- Visit https://thegraph.com/
+- On the top left corner, click on `Products`
+- In the drop down menu, you will see `Subgraph Studio`.
+
+  <img width="363" alt="image" src="https://github.com/user-attachments/assets/e9bbe565-6f06-49cb-b5c8-9f96e2df181f">
+
+- Open `Subgraph Studio` and collect your wallet
+- Add an email address and verify it
+
+Upon completion of these steps, you will have successfully created a Subgraph Studio account.
+ 
+Now, let's create a Subgraph for the Cryptopunks Smart contract.
+You can find that contract on etherscan at https://etherscan.io/token/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
+
+### Step 1: Create your Subgraph🛠
 
 - Go to https://thegraph.com/studio
 - Connect your wallet
 - Click on `Create a Subgraph`
+
+  <img width="759" alt="image" src="https://github.com/user-attachments/assets/f57e96a7-29c3-455f-b479-09bf41cf48f4">
+
 - Enter a name for your Subgraph
 
-## Step 2: Installing The Graph CLI📦
+### Step 2: Installing The Graph CLI📦
 
 The Graph CLI takes a subgraph manifest (defaults to `subgraph.yaml`) with references to:
 
@@ -38,25 +75,26 @@ yarn global add @graphprotocol/graph-cli
 
 ## Step 3: Initialize your Subgraph🧱
 
-To initialize your Subgraph, run the following command:
+Once your subgraph has been created in Subgraph Studio you can initialize the subgraph code using this command:
 
 ```
 graph init --studio <SUBGRAPH_SLUG>
 ```
 > You can get your `SUBGRAPH_SLUG` from the Subgraph Studio
+> Upon running the above command, you will need to enter the contract code for the Cryptopunks contract that we are using as an example. Refer to the etherscan link provided above to get the contract address.
+> Select the protocol as `ethereum` and for Ethereum network, select a testnet for eg. `sepolia`.
 
-If you subgraph is successfully initialized, your terminal should look similar to this:
+If your subgraph is successfully initialized, your terminal should look similar to this:
 ```
 √ Protocol · ethereum
-√ Subgraph slug · fordemo
-√ Directory to create the subgraph in · fordemo
+√ Subgraph slug · cryptopunks
+√ Directory to create the subgraph in · cryptopunks
 √ Ethereum network · sepolia
-√ Contract address · 0xf7e903969E1269147aAfc8915f889B2D918D4bE4
+√ Contract address · 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB
 √ Fetching ABI from Etherscan
-√ Fetching Start Block
 √ Fetching Contract Name
-√ Start Block · 6378250
-√ Contract Name · YourContract
+√ Start Block · 3914495
+√ Contract Name · MetaMultiSigWallet
 √ Index contract events as entities (Y/n) · true
   Generate subgraph
   Write subgraph to directory
@@ -66,17 +104,14 @@ If you subgraph is successfully initialized, your terminal should look similar t
 √ Install dependencies with yarn
 √ Generate ABI and schema types with yarn codegen
 Add another contract? (y/n):
-Subgraph fordemo created in fordemo
+Subgraph cryptopunks created in cryptopunks
 ```
-> Enter the protocol and contract details according to your project.
 
-## Step 4: Authenticate your Subgraph⚙️
+### Step 4: Authenticate your Subgraph⚙️
 
-Go to Subgraph Studio and copy your `Deploy key` from the `Dashboard`.
+Before being able to deploy your subgraph to Subgraph Studio, you need to login into your account within the CLI. To do this, you will need your deploy key that you can find on your "My Subgraphs" page or your subgraph details page.
 
-<img width="380" alt="image" src="https://github.com/user-attachments/assets/b36f7ff6-8f8b-450b-b886-dcd4ef5a7110">
-
-After copying the `Deploy key`, run the following command to authenticate your subgraph:
+Here is the command that you need to use to authenticate from the CLI:
 
 ```
 graph auth --studio <DEPLOY_KEY>
@@ -88,7 +123,7 @@ Output should look like this:
 Deploy key set for https://api.studio.thegraph.com/deploy/
 ```
 
-## Step 5: Codegen && Build🏗
+### Step 5: Codegen && Build🏗
 
 The command `graph codegen` generates AssemblyScript types for smart contract ABIs and the subgraph schema. And the command `graph build` compiles a subgraph to WebAssembly.
 
@@ -126,13 +161,13 @@ Your output should look like this:
 - Load subgraph from subgraph.yaml
 √ Load subgraph from subgraph.yaml
 - Load contract ABIs
-  Load contract ABI from abis\YourContract.json
+  Load contract ABI from abis\MetaMultiSigWallet.json
 - Load contract ABIs
 √ Load contract ABIs
 - Generate types for contract ABIs
-  Generate types for contract ABI: YourContract (abis\YourContract.json)
+  Generate types for contract ABI: MetaMultiSigWallet (abis\MetaMultiSigWallet.json)
 - Generate types for contract ABIs
-  Write types to generated\YourContract\YourContract.ts
+  Write types to generated\MetaMultiSigWallet\MetaMultiSigWallet.ts
 - Generate types for contract ABIs
 √ Generate types for contract ABIs
 - Generate types for data source templates
@@ -169,24 +204,27 @@ Types generated successfully
 - Load subgraph from subgraph.yaml
 √ Load subgraph from subgraph.yaml
 - Compile subgraph
-  Compile data source: YourContract => build\YourContract\YourContract.wasm
+  Compile data source: MetaMultiSigWallet => build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
 - Compile subgraph
 √ Compile subgraph
 - Write compiled subgraph to build\
   Copy schema file build\schema.graphql
 - Write compiled subgraph to build\
-  Write subgraph file build\YourContract\abis\YourContract.json
+  Write subgraph file build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
 - Write compiled subgraph to build\
   Write subgraph manifest build\subgraph.yaml
 - Write compiled subgraph to build\
 √ Write compiled subgraph to build\
 
 Build completed: build\subgraph.yaml
+
 ```
 
-## Step 6: Deploy your Subgraph🚀
+### Step 6: Deploy your Subgraph🚀
 
-Now the final step to deploy your subgraph to the Subgraph Studio is to run the command:
+Once you are ready, you can deploy your subgraph to Subgraph Studio. Doing this won't publish your subgraph to the decentralized network, it will only deploy it to your Studio account where you will be able to test it and update the metadata.
+
+Here is the CLI command that you need to use to deploy your subgraph.
 
 ```
 graph deploy --studio <SUBGRAPH_SLUG>
@@ -207,35 +245,40 @@ Which version label to use? (e.g. "v0.0.1"): v0.0.1
   Skip migration: Bump manifest specVersion from 0.0.2 to 0.0.4
 √ Apply migrations
 √ Load subgraph from subgraph.yaml
-  Compile data source: YourContract => build\YourContract\YourContract.wasm
+  Compile data source: MetaMultiSigWallet => build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
 √ Compile subgraph
   Copy schema file build\schema.graphql
-  Write subgraph file build\YourContract\abis\YourContract.json
+  Write subgraph file build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
   Write subgraph manifest build\subgraph.yaml
 √ Write compiled subgraph to build\
   Add file to IPFS build\schema.graphql
-                .. QmXv32EaV8GbZKWNjsfpKB6ZfVJGXv2dVfeYu3BgitncDM
-  Add file to IPFS build\YourContract\abis\YourContract.json
-                .. QmTBD9N3uBtQAXCk24mvMqoz1W9jeSA2Yd3iqsn6vr6DEj
-  Add file to IPFS build\YourContract\YourContract.wasm
-                .. QmVenAZgP8bCvWLKmGJzJNUMVfckHXs8gArKvdvFcyvm9L
+                .. QmYV9fJt3z44h8zwt4jbrGTwbqNFNTcDBZEXVM4wvf8BXd
+  Add file to IPFS build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
+                .. QmR65LPg1C3F1S2HEqU1MoJmAsBktuCtSXaDwd8ApR3JnH
+  Add file to IPFS build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
+                .. QmYbEzLkM7Pf6VNVMwjXsqbYyaxSHMDR6eXznsLzdgZtKA
 √ Upload subgraph to IPFS
 
-Build completed: QmbKWUzaEq3K2yiDpvowuKkWrpMyXcsfbEWQobY4QrvvAG
+Build completed: QmYksdKggTV1MucjDsXb5CJHgKhs1MAVdMpLNERaNVVKNd
 
-Deployed to https://thegraph.com/studio/subgraph/fordemo
+Deployed to https://thegraph.com/studio/subgraph/cryptopunks
 
 Subgraph endpoints:
-Queries (HTTP):     https://api.studio.thegraph.com/query/55877/fordemo/v0.0.1
+Queries (HTTP):     https://api.studio.thegraph.com/query/84790/cryptopunks/v0.0.1
 ```
 
-You will receive an endpoint for your Subgraph. Head over to the Subgraph Studio and go to the `Playground`.
+You will receive an endpoint for your Subgraph.
+
+This marks the completion of the Subgraph deployment process✅ Now, let's query our subgraph.
+ 
+------
+
+## Querying our Subgraph
+
+Head over to the Subgraph Studio and go to the `Playground`.
 
 <img width="759" alt="image" src="https://github.com/user-attachments/assets/d8033b4a-3c07-4dfe-bfef-4f0c49c65998">
 
-------
-
-This marks the completion of the Subgraph deployment process✅
 
 Find out more in The Graph documentation, [here](https://thegraph.com/docs/en/developing/creating-a-subgraph/).
 
