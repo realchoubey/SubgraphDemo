@@ -139,12 +139,14 @@ Make use of the dashboard to see the commands
 ```
 graph publish
 ```
-(This step is optional, run this only if you want to publish your subgraph to The Graph Network)
+(This step is optional, run this only if you want to publish your subgraph to The Graph Network. Find out more about publishing, [here](https://thegraph.com/docs/en/publishing/publishing-a-subgraph/)
 
 - You can give the version as `v0.0.1`
 
 - Play around with your contract. Set Greeting to the contract using the `setGreeting()` using the Remix IDE.
 
 - Go to the `Playground` on the dashboard and query the data.
+
+- The Graph Explorer has all the published Subgraphs, take a look at an example [here](https://thegraph.com/explorer/subgraphs/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV?view=Query&chain=arbitrum-one)
 
 -------
