@@ -129,9 +129,18 @@ Make use of the dashboard to see the commands
   ```
   graph codegen && graph build
   ```
+  
 - Final Step - Deploy your subgraph.
   ```
   graph deploy --studio SUBGRAPH_NAME
+  ```
+
+- Publishing the subgraph(optional)
+```
+graph publish
+```
+(This step is optional, run this only if you want to publish your subgraph to The Graph Network)
+
 - You can give the version as `v0.0.1`
 
 - Play around with your contract. Set Greeting to the contract using the `setGreeting()` using the Remix IDE.
