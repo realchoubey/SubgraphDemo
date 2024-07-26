@@ -82,12 +82,15 @@ contract DemoContract {
 	receive() external payable {}
 }
 ```
+
 - Compile your contract and deploy it to Sepolia testnet using `Injected Provider` as the environment. Note down the contract address.
+
 - Verify and publish your smart contract (Don't know how? See [this](https://medium.com/etherscan-blog/verifying-contracts-on-etherscan-f995ab772327))
 
 - Go to the [Subgraph studio](https://thegraph.com/studio/) and connect your wallet.
 
 - Click on `Create a Subgraph` and name your subgraph.
+
 - Now, you need to install The Graph Protocol CLI to work with the subgraph.
 ```
 npm install -g @graphprotocol/graph-cli
@@ -96,17 +99,26 @@ OR
 ```
 yarn global add @graphprotocol/graph-cli
 ```
+
 - Create an empty folder and open it in your code editor. Change the directory to that folder and fire up your terminal pointing to that folder.
+
 - Now we will initialize the subgraph using the following command
   ```
   graph init --studio SUBGRAPH_NAME
   ```
+
 - Select `ethereum` as Protocol
+
 - Press Enter for `subgraph slug` and `Directory to create subgraph in`.
+
 - Select `sepolia` as the network. 
+
 - Enter the contract address of your deployed contract from above. It will automatically fetch ABI as we have verified our contract.
+
 - Enter the block number in which the contract is created.
+
 - Enter `DemoContract` as the contract name.
+
 - Press Enter for `Index contract events as entities`.
  
 - You have successfully created your Subgraph.
@@ -116,6 +128,7 @@ yarn global add @graphprotocol/graph-cli
 ```
 graph auth --studio DEPLOY_KEY
 ```
+
 - Change the directory to your deployed subgraph folder
 ```
 cd DIRECTORY_NAME
@@ -126,20 +139,20 @@ Make use of the dashboard to see the commands
 <img width="521" alt="image" src="https://github.com/user-attachments/assets/9040abac-c43f-4c90-ac09-208d99f6db51">
 
 - Now we build our subgraph using the following command
-  ```
-  graph codegen && graph build
-  ```
+```
+graph codegen && graph build
+```
   
 - Final Step - Deploy your subgraph.
-  ```
-  graph deploy --studio SUBGRAPH_NAME
-  ```
-
+```
+graph deploy --studio SUBGRAPH_NAME
+```
+  
 - Publishing the subgraph(optional)
 ```
 graph publish
 ```
-(This step is optional, run this only if you want to publish your subgraph to The Graph Network. Find out more about publishing, [here](https://thegraph.com/docs/en/publishing/publishing-a-subgraph/)
+(This step is optional, run this only if you want to publish your subgraph to The Graph Network. Find out more about publishing, [here](https://thegraph.com/docs/en/publishing/publishing-a-subgraph/).
 
 - You can give the version as `v0.0.1`
 
@@ -147,6 +160,6 @@ graph publish
 
 - Go to the `Playground` on the dashboard and query the data.
 
-- The Graph Explorer has all the published Subgraphs, take a look at an example [here](https://thegraph.com/explorer/subgraphs/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV?view=Query&chain=arbitrum-one)
+- The Graph Explorer has all the published Subgraphs, take a look at an example [here](https://thegraph.com/explorer/subgraphs/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV?view=Query&chain=arbitrum-one).
 
 -------
