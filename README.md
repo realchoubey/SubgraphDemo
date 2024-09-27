@@ -105,7 +105,7 @@ If your subgraph is successfully initialized, your terminal should look similar 
 √ Install dependencies with yarn
 √ Generate ABI and schema types with yarn codegen
 Add another contract? (y/n):
-Subgraph cryptopunks created in cryptopunks
+Subgraph payment-vault created in payment-vault
 ```
 
 ### Step 4: Authenticate your Subgraph⚙️
@@ -263,10 +263,10 @@ Which version label to use? (e.g. "v0.0.1"): v0.0.1
 
 Build completed: QmYksdKggTV1MucjDsXb5CJHgKhs1MAVdMpLNERaNVVKNd
 
-Deployed to https://thegraph.com/studio/subgraph/cryptopunks
+Deployed to https://thegraph.com/studio/subgraph/payment-vault
 
 Subgraph endpoints:
-Queries (HTTP):     https://api.studio.thegraph.com/query/84790/cryptopunks/v0.0.1
+Queries (HTTP):     https://api.studio.thegraph.com/query/84790/payment-vault/v0.0.1
 ```
 
 You will receive an endpoint for your Subgraph.
