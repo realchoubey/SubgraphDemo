@@ -4,10 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ payment-vault",
-    "create-local": "graph create --node http://localhost:8020/ payment-vault",
-    "remove-local": "graph remove --node http://localhost:8020/ payment-vault",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 payment-vault",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ iitb-demo",
+    "create-local": "graph create --node http://localhost:8020/ iitb-demo",
+    "remove-local": "graph remove --node http://localhost:8020/ iitb-demo",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 iitb-demo",
     "test": "graph test"
   },
   "dependencies": {

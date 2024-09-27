@@ -40,8 +40,8 @@ To setup your Subgraph Studio account,
 
 Upon completion of these steps, you will have successfully created a Subgraph Studio account.
  
-Now, let's create a Subgraph for the Cryptopunks Smart contract.
-You can find that contract on etherscan at https://etherscan.io/token/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
+Now, let's create a Subgraph for the Payment Vault Smart contract.
+You can find that contract on arbitrum scan at https://arbiscan.io/address/0x0e13a51a1c6a74083b1ce32d62368abb2c8f403e
 
 ## Create a Subgraph
 ### Step 1: Create your Subgraph🛠
@@ -82,20 +82,20 @@ Once your subgraph has been created in Subgraph Studio you can initialize the su
 graph init --studio <SUBGRAPH_SLUG>
 ```
 > You can get your `SUBGRAPH_SLUG` from the Subgraph Studio
-> Upon running the above command, you will need to enter the contract code for the Cryptopunks contract that we are using as an example. Refer to the etherscan link provided above to get the contract address.
+> Upon running the above command, you will need to enter the contract code for the Payment vault contract that we are using as an example. Refer to the etherscan link provided above to get the contract address.
 > Select the protocol as `ethereum` and for Ethereum network, select a testnet for eg. `sepolia`.
 
 If your subgraph is successfully initialized, your terminal should look similar to this:
 ```
 √ Protocol · ethereum
-√ Subgraph slug · cryptopunks
-√ Directory to create the subgraph in · cryptopunks
+√ Subgraph slug · payment-vault
+√ Directory to create the subgraph in · payment-vault
 √ Ethereum network · sepolia
-√ Contract address · 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB
+√ Contract address · 0x0e13a51a1c6a74083b1ce32d62368abb2c8f403e
 √ Fetching ABI from Etherscan
 √ Fetching Contract Name
-√ Start Block · 3914495
-√ Contract Name · MetaMultiSigWallet
+√ Start Block · 91197696
+√ Contract Name · PaymentVault
 √ Index contract events as entities (Y/n) · true
   Generate subgraph
   Write subgraph to directory
@@ -162,13 +162,13 @@ Your output should look like this:
 - Load subgraph from subgraph.yaml
 √ Load subgraph from subgraph.yaml
 - Load contract ABIs
-  Load contract ABI from abis\MetaMultiSigWallet.json
+  Load contract ABI from abis\PaymentVault.json
 - Load contract ABIs
 √ Load contract ABIs
 - Generate types for contract ABIs
-  Generate types for contract ABI: MetaMultiSigWallet (abis\MetaMultiSigWallet.json)
+  Generate types for contract ABI: PaymentVault (abis\PaymentVault.json)
 - Generate types for contract ABIs
-  Write types to generated\MetaMultiSigWallet\MetaMultiSigWallet.ts
+  Write types to generated\PaymentVault\PaymentVault.ts
 - Generate types for contract ABIs
 √ Generate types for contract ABIs
 - Generate types for data source templates
@@ -205,13 +205,13 @@ Types generated successfully
 - Load subgraph from subgraph.yaml
 √ Load subgraph from subgraph.yaml
 - Compile subgraph
-  Compile data source: MetaMultiSigWallet => build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
+  Compile data source: PaymentVault => build\PaymentVault\PaymentVault.wasm
 - Compile subgraph
 √ Compile subgraph
 - Write compiled subgraph to build\
   Copy schema file build\schema.graphql
 - Write compiled subgraph to build\
-  Write subgraph file build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
+  Write subgraph file build\PaymentVault\abis\PaymentVault.json
 - Write compiled subgraph to build\
   Write subgraph manifest build\subgraph.yaml
 - Write compiled subgraph to build\
@@ -247,17 +247,17 @@ Which version label to use? (e.g. "v0.0.1"): v0.0.1
   Skip migration: Bump manifest specVersion from 0.0.2 to 0.0.4
 √ Apply migrations
 √ Load subgraph from subgraph.yaml
-  Compile data source: MetaMultiSigWallet => build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
+  Compile data source: PaymentVault => build\PaymentVault\PaymentVault.wasm
 √ Compile subgraph
   Copy schema file build\schema.graphql
-  Write subgraph file build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
+  Write subgraph file build\PaymentVault\abis\PaymentVault.json
   Write subgraph manifest build\subgraph.yaml
 √ Write compiled subgraph to build\
   Add file to IPFS build\schema.graphql
                 .. QmYV9fJt3z44h8zwt4jbrGTwbqNFNTcDBZEXVM4wvf8BXd
-  Add file to IPFS build\MetaMultiSigWallet\abis\MetaMultiSigWallet.json
+  Add file to IPFS build\PaymentVault\abis\PaymentVault.json
                 .. QmR65LPg1C3F1S2HEqU1MoJmAsBktuCtSXaDwd8ApR3JnH
-  Add file to IPFS build\MetaMultiSigWallet\MetaMultiSigWallet.wasm
+  Add file to IPFS build\PaymentVault\PaymentVault.wasm
                 .. QmYbEzLkM7Pf6VNVMwjXsqbYyaxSHMDR6eXznsLzdgZtKA
 √ Upload subgraph to IPFS
 
