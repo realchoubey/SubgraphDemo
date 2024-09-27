@@ -1,0 +1,29 @@
+type DepositCompleted @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  sender: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  currentOwner: Bytes! # address
+  newOwner: Bytes! # address
+  transferredTimestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawCompleted @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  beneficiary: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -1,0 +1,8 @@
+{
+  "arbitrum-one": {
+    "PaymentVault": {
+      "address": "0x0e13a51a1c6a74083b1ce32d62368abb2c8f403e",
+      "startBlock": 91197696
+    }
+  }
+}

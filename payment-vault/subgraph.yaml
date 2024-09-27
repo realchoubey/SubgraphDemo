@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: PaymentVault
+    network: arbitrum-one
+    source:
+      address: "0x0e13a51a1c6a74083b1ce32d62368abb2c8f403e"
+      abi: PaymentVault
+      startBlock: 91197696
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DepositCompleted
+        - OwnershipTransferred
+        - WithdrawCompleted
+      abis:
+        - name: PaymentVault
+          file: ./abis/PaymentVault.json
+      eventHandlers:
+        - event: DepositCompleted(indexed address,indexed address,uint256)
+          handler: handleDepositCompleted
+        - event: OwnershipTransferred(indexed address,indexed address,uint256)
+          handler: handleOwnershipTransferred
+        - event: WithdrawCompleted(indexed address,indexed address,uint256)
+          handler: handleWithdrawCompleted
+      file: ./src/payment-vault.ts
