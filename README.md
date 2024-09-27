@@ -1,8 +1,7 @@
 # Building a full stack dApp using The Graph
 
-## Creating & Deploying a Subgraph
 
-### What are Subgraphs?
+## What are Subgraphs?
 
 - A subgraph is a custom API built on blockchain data.
 
@@ -12,7 +11,7 @@
 
 You can find more about subgraphs in the docs [here](https://thegraph.com/docs/en/quick-start/).
 
-### Subgraph Configuration
+## Subgraph Configuration
 
 There are three main Subgraph components:
 
@@ -27,7 +26,7 @@ There are three main Subgraph components:
 
 These files together define the subgraph's configuration, the data structure, and the logic for processing and storing blockchain data.
 
-### Setting up your Subgraph Studio account
+## Setting up your Subgraph Studio account
 
 To setup your Subgraph Studio account, 
 - Visit https://thegraph.com/
@@ -44,6 +43,7 @@ Upon completion of these steps, you will have successfully created a Subgraph St
 Now, let's create a Subgraph for the Cryptopunks Smart contract.
 You can find that contract on etherscan at https://etherscan.io/token/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb
 
+## Create a Subgraph
 ### Step 1: Create your Subgraph🛠
 
 - Go to https://thegraph.com/studio
@@ -65,11 +65,12 @@ The Graph CLI takes a subgraph manifest (defaults to `subgraph.yaml`) with refer
 It compiles the mappings to WebAssembly, builds a ready-to-use version of the subgraph saved to IPFS or a local directory for debugging, and deploys the subgraph to a [Graph Node](https://github.com/graphprotocol/graph-node).
 
 To install The Graph CLI using `npm` or `yarn`, run the following command in your terminal:
+### NPM
 ```
-#NPM
 npm install -g @graphprotocol/graphcli
-
-#Yarn
+```
+### Yarn
+```
 yarn global add @graphprotocol/graph-cli
 ```
 
@@ -220,6 +221,7 @@ Build completed: build\subgraph.yaml
 
 ```
 
+## Deploy Subgraph to Studio
 ### Step 6: Deploy your Subgraph🚀
 
 Once you are ready, you can deploy your subgraph to Subgraph Studio. Doing this won't publish your subgraph to the decentralized network, it will only deploy it to your Studio account where you will be able to test it and update the metadata.
@@ -275,11 +277,15 @@ This marks the completion of the Subgraph deployment process✅ Now, let's query
 
 ## Querying our Subgraph
 
+### Query using TheGraph UI
 Head over to the Subgraph Studio and go to the `Playground`.
 
 <img width="759" alt="image" src="https://github.com/user-attachments/assets/d8033b4a-3c07-4dfe-bfef-4f0c49c65998">
 
+### Query in Code:
+<To Be Updated>
 
+## References:
 Find out more in The Graph documentation, [here](https://thegraph.com/docs/en/developing/creating-a-subgraph/).
 
 Thank you!
