@@ -289,4 +289,7 @@ Head over to the Subgraph Studio and go to the `Playground`.
 ## References:
 Find out more in The Graph documentation, [here](https://thegraph.com/docs/en/developing/creating-a-subgraph/).
 
+## Run Graph Node:
+https://github.com/dapplooker/graphprotocol-docker
+
 Thank you!
