@@ -2,6 +2,8 @@
 payment-vault/build/
 generated/
 
+.idea/
+
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -32,3 +34,5 @@ typechain-types
 
 # Hardhat files
 cache
+
+package-lock.json
