@@ -280,10 +280,11 @@ This marks the completion of the Subgraph deployment process✅ Now, let's query
 ### Query using TheGraph UI
 Head over to the Subgraph Studio and go to the `Playground`.
 
-<img width="759" alt="image" src="https://github.com/user-attachments/assets/d8033b4a-3c07-4dfe-bfef-4f0c49c65998">
+<img width="1416" alt="playground" src="https://github.com/user-attachments/assets/e02c8570-ab07-4f6d-b02d-79426743dc74">
+
 
 ### Query in Code:
-<To Be Updated>
+[Example Code](query-subgraph/src/lib/apolloClient.ts)
 
 ## References:
 Find out more in The Graph documentation, [here](https://thegraph.com/docs/en/developing/creating-a-subgraph/).
