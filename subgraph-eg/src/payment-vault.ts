@@ -17,6 +17,10 @@ export function handleDepositCompleted(event: DepositCompletedEvent): void {
   entity.sender = event.params.sender
   entity.amount = event.params.amount
 
+  // Aggregation
+  let totalDeposit = entity.totalDeposit
+  entity.totalDeposit = totalDeposit.plus(event.params.amount)
+
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash

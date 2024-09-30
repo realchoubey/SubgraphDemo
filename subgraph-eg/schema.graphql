@@ -3,6 +3,7 @@ type DepositCompleted @entity(immutable: true) {
   token: Bytes! # address
   sender: Bytes! # address
   amount: BigInt! # uint256
+  totalDeposit: BigInt!
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

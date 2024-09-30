@@ -29,4 +29,4 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: WithdrawCompleted(indexed address,indexed address,uint256)
           handler: handleWithdrawCompleted
-      file: ./src/subgraph-eg.ts
+      file: ./src/payment-vault.ts
